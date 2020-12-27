@@ -15,7 +15,7 @@ export type TProduct = {
   iron: number
 }
 export type TProductState = {
-  productParamsTitle: string[]
+  productParamsTitle: string[] | []
   products: TProduct[] | []
   isLoading: boolean
   isError: boolean
@@ -27,7 +27,7 @@ const initialState = {
   isError: false
 }
 
-export const updateProductList = (state:any = initialState, action:TFetchTypes) => {
+export const updateProductList = (state:TProductState = initialState, action:TFetchTypes) => {
   switch (action.type) {
     case FETCH_PRODUCTS_REQUEST:
       return {
