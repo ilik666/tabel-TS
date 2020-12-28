@@ -1,14 +1,32 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { HeaderTitlesConsumer } from '../header-context/header-context';
 import './table-list.css'
+import {useDispatch, useSelector} from "react-redux";
 
-export const TableList: React.FC = (props:any) => {
-  const [headersTitle, setHeadersTitle] = React.useState()
+export const TableList: React.FC = (props) => {
+  const state = useSelector(state => state)
+  const dispatch = useDispatch()
 
-  useEffect(() => {
+  console.log(state)
 
-  }, [headersTitle])
   return (
-    <div className='table-wrap'>
-    </div>
+    <table>
+      <thead>
+        <tr>
+          <HeaderTitlesConsumer>
+            {
+              (titles) => {
+                return titles && titles.map((title, id) => <th key={id}> { title }</th>)
+              }
+            }
+          </HeaderTitlesConsumer>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+
+        </tr>
+      </tbody>
+    </table>
   );
 }

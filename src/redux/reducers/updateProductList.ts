@@ -15,13 +15,11 @@ export type TProduct = {
   iron: number
 }
 export type TProductState = {
-  productParamsTitle: string[] | []
   products: TProduct[] | []
   isLoading: boolean
   isError: boolean
 }
 const initialState = {
-  productParamsTitle: ['Sorting by','Product (100g serving)', 'Calories', 'Fat (g)', 'Carbs (g)', 'Protein (g)', 'Iron (%)'],
   products: [],
   isLoading: true,
   isError: false
